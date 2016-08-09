@@ -154,7 +154,7 @@ impl SafeAccount {
 
 #[cfg(test)]
 mod tests {
-	use ethkey::{Generator, Random, verify, Message};
+	use ethkey::{Generator, Random, verify_public, Message};
 	use super::{Crypto, SafeAccount};
 
 	#[test]
@@ -180,7 +180,7 @@ mod tests {
 		let message = Message::default();
 		let account = SafeAccount::create(&keypair, [0u8; 16], password, 10240);
 		let signature = account.sign(password, &message).unwrap();
-		assert!(verify(keypair.public(), &signature, &message).unwrap());
+		assert!(verify_public(keypair.public(), &signature, &message).unwrap());
 	}
 
 	#[test]

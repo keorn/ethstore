@@ -1,5 +1,5 @@
 //! ethkey reexport to make documentation look pretty.
-pub use _ethkey::{Address, Message, Signature, Public, Secret, Generator, sign, verify, Error, KeyPair, Random, Prefix};
+pub use _ethkey::{Address, Message, Signature, Public, Secret, Generator, verify_public, sign, Error, KeyPair, Random, Prefix};
 use json;
 
 impl Into<json::H160> for Address {
